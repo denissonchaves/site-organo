@@ -1,4 +1,4 @@
-import './CampoTexto.css'
+import './CampoTexto.css';
 
 const CampoTexto = (props) => {
   return (
@@ -6,7 +6,7 @@ const CampoTexto = (props) => {
       <label>{props.label}</label>
       <input placeholder={props.placeholder} />
     </div>
-  )
-}
+  );
+};
 
-export default CampoTexto
+export default CampoTexto;

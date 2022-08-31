@@ -4,7 +4,7 @@ import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
 import './Formulario.css';
 
-const Formulario = () => {
+const Formulario = (props) => {
 
   const times = [
     '',
@@ -24,7 +24,12 @@ const Formulario = () => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    console.log('Form foi submetido =>', nome, cargo, imagem, time);
+    props.aoColaboradorCadastrado({
+      nome: nome,
+      cargo: cargo,
+      imagem: imagem,
+      time: time
+    });
   };
 
   return (
@@ -36,7 +41,9 @@ const Formulario = () => {
           label="Nome"
           placeholder="Digite seu nome"
           valor={nome}
-          aoAlterado={valor => setNome(valor)}
+          aoAlterado={function (valor) {
+            return setNome(valor); 
+          }}
         />
         <CampoTexto
           obrigatorio={true}
